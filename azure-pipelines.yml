@@ -18,15 +18,14 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: VSBuild@1
+- task: DotNetCoreCLI@2
   inputs:
-    solution: '$(solution)'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'build'
+    projects: '$(solution)'
 
 - task: CopyFiles@2
   inputs:
-    Contents: '**/bin/Release/*'
+    Contents: '**/bin/Release/**/*'
     TargetFolder: '$(build.artifactstagingdirectory)'
     flattenFolders: true
 
