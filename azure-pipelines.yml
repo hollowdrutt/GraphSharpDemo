@@ -22,6 +22,7 @@ steps:
   inputs:
     command: 'build'
     projects: '$(solution)'
+    arguments: '-c $(buildConfiguration)'
 
 - task: CopyFiles@2
   inputs:
